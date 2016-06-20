@@ -7,7 +7,7 @@
 [![npm](https://img.shields.io/npm/dt/compress-object.svg?maxAge=2592000)]()
 [![npm](https://img.shields.io/npm/dm/compress-object.svg?maxAge=2592000)]()
 
-> when objects become too large, lets turn them into something smaller
+> when objects become too large, let's turn them into something smaller
 
 ## TLDR;
 
