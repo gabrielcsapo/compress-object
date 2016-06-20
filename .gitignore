@@ -1,0 +1,4 @@
+node_modules
+test/compressed.json
+test/uncompressed.json
+.DS_Store
