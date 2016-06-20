@@ -181,8 +181,8 @@ describe('compress-object', function() {
     it('should show filesize between the two files', function() {
         var compressed = fs.statSync('./test/compressed.json')['size'];
         var uncompressed = fs.statSync('./test/uncompressed.json')['size'];
-        console.log('compressed: ', filesize(compressed));
-        console.log('uncompressed: ', filesize(uncompressed))
+        console.log('compressed: ', filesize(compressed)); // eslint-disable-line no-console
+        console.log('uncompressed: ', filesize(uncompressed)) // eslint-disable-line no-console
     });
 
 });
