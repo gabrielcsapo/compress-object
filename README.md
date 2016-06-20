@@ -38,7 +38,8 @@ var flattened = compress({
 ```
 
 > ```javascript
-[ 'Gabriel J. Csapo', 21, 'Male' ] ```
+[ 'Gabriel J. Csapo', 21, 'Male' ] 
+```
 
 ## deserialize
 
@@ -51,8 +52,10 @@ var object = compress({
 }).deserialize(flattened);
 ```
 
-> ```javascript{
+> ```javascript
+{
     name: 'Gabriel J. Csapo',
     age: 21,
     gender: 'Male'
-}```
+}
+```
