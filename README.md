@@ -38,7 +38,35 @@ var flattened = compress({
 ```
 
 > ```javascript
-[ 'Gabriel J. Csapo', 21, 'Male' ] 
+[ 'Gabriel J. Csapo', 21, 'Male' ]
+```
+
+> Complex Objects
+
+```javascript
+var flattened = compress({
+    name: '',
+    age: 0,
+    gender: '',
+    friends: [],
+    job: {
+        employer: '',
+        position: ''
+    }
+}).serialize({
+    name: 'Gabriel J. Csapo',
+    age: 21,
+    gender: 'Male',
+    friends: [],
+    job: {
+        employer: 'PayPal',
+        position: 'Software Engineer'
+    }
+});
+```
+
+> ```javascript
+['Gabriel J. Csapo', 21, 'Male', [],['PayPal', 'Software Engineer']]
 ```
 
 ## deserialize
@@ -57,5 +85,34 @@ var object = compress({
     name: 'Gabriel J. Csapo',
     age: 21,
     gender: 'Male'
+}
+```
+
+> Complex Objects
+
+```javascript
+var flattened = ['Gabriel J. Csapo', 21, 'Male', [],['PayPal', 'Software Engineer']];
+var object = compress({
+    name: '',
+    age: 0,
+    gender: '',
+    friends: [],
+    job: {
+        employer: '',
+        position: ''
+    }
+}).deserialize(flattened);
+```
+
+> ```javascript
+{
+    name: 'Gabriel J. Csapo',
+    age: 21,
+    gender: 'Male',
+    friends: [],
+    job: {
+        employer: 'PayPal',
+        position: 'Software Engineer'
+    }
 }
 ```
