@@ -41,6 +41,8 @@ var flattened = compress({
 [ 'Gabriel J. Csapo', 21, 'Male' ]
 ```
 
+<br>
+
 > Complex Objects
 
 ```javascript
@@ -87,6 +89,8 @@ var object = compress({
     gender: 'Male'
 }
 ```
+
+<br>
 
 > Complex Objects
 
