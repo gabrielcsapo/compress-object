@@ -18,7 +18,7 @@
   "homepage": "https://github.com/gabrielcsapo/compress-object#readme",
   "devDependencies": {
     "chai": "^3.5.0",
-    "chance": "^1.0.3",
+    "chance": "^1.0.4",
     "eslint": "^3.1.1",
     "filesize": "^3.3.0",
     "mocha": "^2.5.3"

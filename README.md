@@ -15,7 +15,7 @@ This is a simple library to turn javascript objects into flat representations
 
 ### Is it worth it?
 
-Turning an array of 1000 complex objects (objects that have nsted objects and nested arrays)
+Turning an array of 1000 complex objects (objects that have nsted objects and nested arrays) (373ms)
 
 |before|after|
 |---|---|
