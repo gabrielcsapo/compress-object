@@ -4,6 +4,7 @@
   "description": "It serializes and deserializes and object to a flat array",
   "main": "index.js",
   "scripts": {
+    "build": "./node_modules/.bin/browserify -r ./index.js:compress-object > ./docs/build.js;grunt;",
     "test": "./node_modules/.bin/eslint .;mocha;"
   },
   "repository": {
@@ -17,10 +18,15 @@
   },
   "homepage": "https://github.com/gabrielcsapo/compress-object#readme",
   "devDependencies": {
+    "ace-builds": "^1.2.5",
+    "browserify": "^13.1.0",
     "chai": "^3.5.0",
-    "chance": "^1.0.3",
-    "eslint": "^2.13.0",
+    "chance": "^1.0.4",
+    "eslint": "^3.4.0",
     "filesize": "^3.3.0",
-    "mocha": "^2.5.3"
+    "grunt": "^1.0.1",
+    "grunt-contrib-pug": "^1.0.0",
+    "mocha": "^3.0.2",
+    "psychic-ui": "^0.4.0"
   }
 }

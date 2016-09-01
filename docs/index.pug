@@ -1,0 +1,103 @@
+html
+    head
+        script
+            include ./build.js
+        script
+            include ./jquery.js
+        style.
+            div.codeblock-editor-wrapper {
+                height: 275.00000000000003px !important;
+            }
+        style
+            include ../node_modules/psychic-ui/dist/psychic-min.css
+        script
+            include ../node_modules/ace-builds/src/ace.js
+        style
+            include ./codeblock.css
+        script
+            include ./codeblock.js
+    body
+        div(class="navbar navbar-center")
+            div(class="container")
+                div(class="navbar-title")
+                    span(class="text-black") Compress Object
+                div(class="navbar-content")
+                div(class="nav")
+                    a(class="text-black" href="https://github.com/gabrielcsapo/compress-object") Source
+        div(style="width:100%;")
+            div(style="padding-right:50px;padding-left:50px;")
+                br
+                br
+                div.grid
+                    div.col-md-3-12
+                    div.col-md-6-12
+                        div(class="text-left text-black")
+                            i Compress Object
+                        br
+                        div
+                            div#compress-object.codeblock.
+                                var compress = require('compress-object');
+
+                                var flattened = compress({
+                                    name: '',
+                                    age: 0,
+                                    gender: ''
+                                }).serialize({
+                                    name: 'Gabriel J. Csapo',
+                                    age: 21,
+                                    gender: 'Male'
+                                });
+
+                                console.log(JSON.stringify(flattened, null, 4));
+                        br
+                        br
+                        div(class="text-left text-black")
+                            i Deserialize Object
+                        br
+                        div
+                            div#deserialize-object.codeblock.
+                                var compress = require('compress-object');
+
+                                var flattened = [ 'Gabriel J. Csapo', 21, 'Male' ];
+
+
+                                var object = compress({
+                                    name: '',
+                                    age: 0,
+                                    gender: ''
+                                }).deserialize(flattened);
+
+
+                                console.log(JSON.stringify(object, null, 4));
+                    div.col-md-3-12
+        br
+        br
+        div(class="navbar navbar-center" style="bottom:0;")
+            div(class="container text-center")
+                div(class="text-black") created with 🚀 by
+                    a(href="www.gabrielcsapo.com") @gabrielcsapo
+        script.
+            $("#compress-object").codeblock({
+                editable: true,
+                consoleText: "Output from the example appears here",
+                consoleClass: "codeblock-console-text",
+                runButtonText: "run",
+                runButtonClass: "codeblock-console-run",
+                console: true,
+                resetable: true,
+                runnable: true,
+                lineNumbers: true,
+                editorTheme: "ace/theme/monokai"
+            });
+            $("#deserialize-object").codeblock({
+                editable: true,
+                consoleText: "Output from the example appears here",
+                consoleClass: "codeblock-console-text",
+                runButtonText: "run",
+                runButtonClass: "codeblock-console-run",
+                console: true,
+                resetable: true,
+                runnable: true,
+                lineNumbers: true,
+                editorTheme: "ace/theme/monokai"
+            });
