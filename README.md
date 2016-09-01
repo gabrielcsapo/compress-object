@@ -7,7 +7,7 @@
 [![npm](https://img.shields.io/npm/dt/compress-object.svg?maxAge=2592000)]()
 [![npm](https://img.shields.io/npm/dm/compress-object.svg?maxAge=2592000)]()
 
-> when objects become too large, lets turn them into something smaller
+> when objects become too large, let's turn them into something smaller
 
 ## TLDR;
 
@@ -15,7 +15,7 @@ This is a simple library to turn javascript objects into flat representations
 
 ### Is it worth it?
 
-Turning an array of 1000 complex objects (objects that have nsted objects and nested arrays)
+Turning an array of 1000 complex objects (objects that have nsted objects and nested arrays) (373ms)
 
 |before|after|
 |---|---|
@@ -38,7 +38,37 @@ var flattened = compress({
 ```
 
 > ```javascript
-[ 'Gabriel J. Csapo', 21, 'Male' ] 
+[ 'Gabriel J. Csapo', 21, 'Male' ]
+```
+
+<br>
+
+> Complex Objects
+
+```javascript
+var flattened = compress({
+    name: '',
+    age: 0,
+    gender: '',
+    friends: [],
+    job: {
+        employer: '',
+        position: ''
+    }
+}).serialize({
+    name: 'Gabriel J. Csapo',
+    age: 21,
+    gender: 'Male',
+    friends: [],
+    job: {
+        employer: 'PayPal',
+        position: 'Software Engineer'
+    }
+});
+```
+
+> ```javascript
+['Gabriel J. Csapo', 21, 'Male', [],['PayPal', 'Software Engineer']]
 ```
 
 ## deserialize
@@ -57,5 +87,36 @@ var object = compress({
     name: 'Gabriel J. Csapo',
     age: 21,
     gender: 'Male'
+}
+```
+
+<br>
+
+> Complex Objects
+
+```javascript
+var flattened = ['Gabriel J. Csapo', 21, 'Male', [],['PayPal', 'Software Engineer']];
+var object = compress({
+    name: '',
+    age: 0,
+    gender: '',
+    friends: [],
+    job: {
+        employer: '',
+        position: ''
+    }
+}).deserialize(flattened);
+```
+
+> ```javascript
+{
+    name: 'Gabriel J. Csapo',
+    age: 21,
+    gender: 'Male',
+    friends: [],
+    job: {
+        employer: 'PayPal',
+        position: 'Software Engineer'
+    }
 }
 ```
