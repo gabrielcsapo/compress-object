@@ -4,7 +4,7 @@
   "description": "It serializes and deserializes and object to a flat array",
   "main": "index.js",
   "scripts": {
-    "build": "./node_modules/.bin/browserify -r ./index.js:compress-object > ./docs/build.js;grunt;",
+    "build": "./node_modules/.bin/browserify -r ./index.js:compress-object ./docs/src/doc.js > ./docs/build.js;grunt;",
     "test": "./node_modules/.bin/eslint .;mocha;"
   },
   "repository": {
@@ -26,6 +26,7 @@
     "filesize": "^3.3.0",
     "grunt": "^1.0.1",
     "grunt-contrib-pug": "^1.0.0",
+    "jquery": "^3.1.0",
     "mocha": "^3.0.2",
     "psychic-ui": "^0.4.0"
   }

@@ -2,8 +2,6 @@ html
     head
         script
             include ./build.js
-        script
-            include ./jquery.js
         style.
             div.codeblock-editor-wrapper {
                 height: 275.00000000000003px !important;
@@ -76,28 +74,3 @@ html
             div(class="container text-center")
                 div(class="text-black") created with 🚀 by
                     a(href="www.gabrielcsapo.com") @gabrielcsapo
-        script.
-            $("#compress-object").codeblock({
-                editable: true,
-                consoleText: "Output from the example appears here",
-                consoleClass: "codeblock-console-text",
-                runButtonText: "run",
-                runButtonClass: "codeblock-console-run",
-                console: true,
-                resetable: true,
-                runnable: true,
-                lineNumbers: true,
-                editorTheme: "ace/theme/monokai"
-            });
-            $("#deserialize-object").codeblock({
-                editable: true,
-                consoleText: "Output from the example appears here",
-                consoleClass: "codeblock-console-text",
-                runButtonText: "run",
-                runButtonClass: "codeblock-console-run",
-                console: true,
-                resetable: true,
-                runnable: true,
-                lineNumbers: true,
-                editorTheme: "ace/theme/monokai"
-            });
