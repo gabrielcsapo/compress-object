@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "./node_modules/.bin/browserify -r ./index.js:compress-object ./docs/src/doc.js > ./docs/build.js;grunt;",
-    "test": "./node_modules/.bin/eslint .;mocha;"
+    "test": "./node_modules/.bin/eslint .;./node_modules/.bin/tape test;"
   },
   "repository": {
     "type": "git",
@@ -20,14 +20,13 @@
   "devDependencies": {
     "ace-builds": "^1.2.5",
     "browserify": "^13.1.0",
-    "chai": "^3.5.0",
     "chance": "^1.0.4",
     "eslint": "^3.4.0",
     "filesize": "^3.3.0",
     "grunt": "^1.0.1",
     "grunt-contrib-pug": "^1.0.0",
     "jquery": "^3.1.0",
-    "mocha": "^3.0.2",
-    "psychic-ui": "^0.4.0"
+    "psychic-ui": "^0.4.0",
+    "tape": "^4.6.3"
   }
 }
