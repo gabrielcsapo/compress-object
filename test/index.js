@@ -5,7 +5,7 @@ var test = require('tape').test;
 var compress = require('../index.js');
 
 test('compress-object', function(t) {
-    t.plan(9);
+    t.plan(10);
 
     t.test('should serialize the object', function(t) {
         var flattened = compress({
@@ -57,6 +57,26 @@ test('compress-object', function(t) {
             }
         });
         t.deepEqual(flattened, ['Gabriel J. Csapo', 21, 'Male', [],['PayPal', 'Software Engineer']])
+        t.end();
+    });
+
+    t.test('should serialize complex object and fill in the missing values', function(t) {
+        var flattened = compress({
+            name: '',
+            age: 0,
+            gender: '',
+            friends: [],
+            job: {
+                employer: '',
+                position: ''
+            }
+        }).serialize({
+            name: 'Gabriel J. Csapo',
+            age: 21,
+            gender: 'Male',
+            friends: []
+        });
+        t.deepEqual(flattened, ['Gabriel J. Csapo', 21, 'Male', [],['', '']])
         t.end();
     });
 
