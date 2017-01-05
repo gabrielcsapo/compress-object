@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "./node_modules/.bin/browserify -r ./index.js:compress-object ./docs/src/doc.js > ./docs/build.js;grunt;",
-    "test": "./node_modules/.bin/eslint .;./node_modules/.bin/tape test;"
+    "test": "./node_modules/.bin/eslint .;./node_modules/.bin/tape test;",
+    "coverage": "./node_modules/.bin/tap test/*.js --coverage"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
     "grunt-contrib-pug": "^1.0.0",
     "jquery": "^3.1.0",
     "psychic-ui": "^0.4.0",
+    "tap": "^8.0.1",
     "tape": "^4.6.3"
   }
 }
