@@ -1,13 +1,13 @@
-var assert = require('chai').assert;
 var chance = require('chance')();
 var fs = require('fs');
 var filesize = require('filesize');
-
+var test = require('tape').test;
 var compress = require('../index.js');
 
-describe('compress-object', function() {
+test('compress-object', function(t) {
+    t.plan(9);
 
-    it('should serialize the object', function() {
+    t.test('should serialize the object', function(t) {
         var flattened = compress({
             name: '',
             age: 0,
@@ -17,10 +17,11 @@ describe('compress-object', function() {
             age: 21,
             gender: 'Male'
         });
-        assert.deepEqual(flattened, [ 'Gabriel J. Csapo', 21, 'Male' ]);
+        t.deepEqual(flattened, [ 'Gabriel J. Csapo', 21, 'Male' ]);
+        t.end();
     });
 
-    it('should serialize the object with empty attributes', function() {
+    t.test('should serialize the object with empty attributes', function(t) {
         var flattened = compress({
             name: '',
             age: 0,
@@ -31,10 +32,11 @@ describe('compress-object', function() {
             age: 21,
             gender: 'Male'
         });
-        assert.deepEqual(flattened, [ 'Gabriel J. Csapo', 21, 'Male', []]);
+        t.deepEqual(flattened, [ 'Gabriel J. Csapo', 21, 'Male', []]);
+        t.end()
     });
 
-    it('should serialize complex object', function() {
+    t.test('should serialize complex object', function(t) {
         var flattened = compress({
             name: '',
             age: 0,
@@ -54,10 +56,11 @@ describe('compress-object', function() {
                 position: 'Software Engineer'
             }
         });
-        assert.deepEqual(flattened, ['Gabriel J. Csapo', 21, 'Male', [],['PayPal', 'Software Engineer']])
+        t.deepEqual(flattened, ['Gabriel J. Csapo', 21, 'Male', [],['PayPal', 'Software Engineer']])
+        t.end();
     });
 
-    it('should serialize an array of objects', function() {
+    t.test('should serialize an array of objects', function(t) {
         var flattened = compress({
             name: '',
             age: 0,
@@ -71,24 +74,26 @@ describe('compress-object', function() {
             age: 20,
             gender: 'Female'
         }]);
-        assert.deepEqual(flattened, [ [ 'Gabriel J. Csapo', 21, 'Male' ], [ 'Stephanie Csapo', 20, 'Female' ] ])
+        t.deepEqual(flattened, [ [ 'Gabriel J. Csapo', 21, 'Male' ], [ 'Stephanie Csapo', 20, 'Female' ] ])
+        t.end();
     });
 
-    it('should deserialize the array', function() {
+    t.test('should deserialize the array', function(t) {
         var flattened = [ 'Gabriel J. Csapo', 21, 'Male' ];
         var object = compress({
             name: '',
             age: 0,
             gender: ''
         }).deserialize(flattened);
-        assert.deepEqual(object, {
+        t.deepEqual(object, {
             name: 'Gabriel J. Csapo',
             age: 21,
             gender: 'Male'
         });
+        t.end();
     });
 
-    it('should deserialize complex object array', function() {
+    t.test('should deserialize complex object array', function(t) {
         var flattened = ['Gabriel J. Csapo', 21, 'Male', [],['PayPal', 'Software Engineer']];
         var object = compress({
             name: '',
@@ -100,7 +105,7 @@ describe('compress-object', function() {
                 position: ''
             }
         }).deserialize(flattened);
-        assert.deepEqual(object, {
+        t.deepEqual(object, {
             name: 'Gabriel J. Csapo',
             age: 21,
             gender: 'Male',
@@ -109,17 +114,18 @@ describe('compress-object', function() {
                 employer: 'PayPal',
                 position: 'Software Engineer'
             }
-        })
+        });
+        t.end();
     });
 
-    it('should deserialize complex multi object array', function() {
+    t.test('should deserialize complex multi object array', function(t) {
         var flattened = [ [ 'Gabriel J. Csapo', 21, 'Male' ], [ 'Stephanie Csapo', 20, 'Female' ] ];
         var object = compress({
             name: '',
             age: 0,
             gender: ''
         }).deserialize(flattened);
-        assert.deepEqual(object, [{
+        t.deepEqual(object, [{
             name: 'Gabriel J. Csapo',
             age: 21,
             gender: 'Male'
@@ -128,9 +134,10 @@ describe('compress-object', function() {
             age: 20,
             gender: 'Female'
         }]);
+        t.end();
     });
 
-    it('should serialize and deserialize', function() {
+    t.test('should serialize and deserialize', function(t) {
         var people = [];
         for(var i = 0; i < 1000; i++) {
             people.push({
@@ -175,14 +182,16 @@ describe('compress-object', function() {
                 position: ''
             }
         }).deserialize(flattened);
-        assert.deepEqual(people, object);
+        t.deepEqual(people, object);
+        t.end();
     });
 
-    it('should show filesize between the two files', function() {
+    t.test('should show filesize between the two files', function() {
         var compressed = fs.statSync('./test/compressed.json')['size'];
         var uncompressed = fs.statSync('./test/uncompressed.json')['size'];
         console.log('compressed: ', filesize(compressed)); // eslint-disable-line no-console
         console.log('uncompressed: ', filesize(uncompressed)) // eslint-disable-line no-console
     });
 
+    t.end();
 });
