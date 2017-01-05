@@ -3,6 +3,7 @@
 [![Npm Version](https://img.shields.io/npm/v/compress-object.svg)](https://www.npmjs.com/package/compress-object)
 [![Build Status](https://travis-ci.org/gabrielcsapo/compress-object.svg?branch=master)](https://travis-ci.org/gabrielcsapo/compress-object) [![Dependency Status](https://david-dm.org/gabrielcsapo/compress-object.svg)](https://david-dm.org/gabrielcsapo/compress-object)
 [![devDependency Status](https://david-dm.org/gabrielcsapo/compress-object/dev-status.svg)](https://david-dm.org/gabrielcsapo/compress-object#info=devDependencies)
+[![Coverage Status](https://coveralls.io/repos/github/gabrielcsapo/compress-object/badge.svg?branch=master)](https://coveralls.io/github/gabrielcsapo/compress-object?branch=master)
 ![npm license](https://img.shields.io/npm/l/compress-object.svg)
 [![npm](https://img.shields.io/npm/dt/compress-object.svg?maxAge=2592000)]()
 [![npm](https://img.shields.io/npm/dm/compress-object.svg?maxAge=2592000)]()

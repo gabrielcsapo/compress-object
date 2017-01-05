@@ -20,7 +20,6 @@ module.exports = function(Schema) {
         Object.keys(__Schema).forEach(function(key) {
             // If the object does contain the key use the value
             if(typeof __Schema[key] == 'object' && !Array.isArray(__Schema[key])) {
-
                 if(object[key]) {
                     flat.push(_serialize(object[key], __Schema[key]));
                 } else {
