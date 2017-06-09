@@ -1,12 +1,14 @@
 {
   "name": "compress-object",
-  "version": "0.0.1",
-  "description": "It serializes and deserializes and object to a flat array",
+  "version": "0.0.2",
+  "description": "Serialize and deserialize objects to a flat array.",
   "main": "index.js",
   "scripts": {
-    "build": "./node_modules/.bin/browserify -r ./index.js:compress-object ./docs/src/doc.js > ./docs/build.js;grunt;",
-    "test": "./node_modules/.bin/eslint .;./node_modules/.bin/tape test;",
-    "coverage": "./node_modules/.bin/tap test/*.js --coverage"
+    "build": "browserify -r ./index.js:compress-object > dist/compress-object.js;",
+    "lint": "eslint .;",
+    "test": "tape test;",
+    "coverage": "tap test/*.js --coverage",
+    "generate-docs": "tryitout"
   },
   "repository": {
     "type": "git",
@@ -19,16 +21,12 @@
   },
   "homepage": "https://github.com/gabrielcsapo/compress-object#readme",
   "devDependencies": {
-    "ace-builds": "^1.2.5",
-    "browserify": "^13.1.0",
-    "chance": "^1.0.4",
-    "eslint": "^3.4.0",
-    "filesize": "^3.3.0",
-    "grunt": "^1.0.1",
-    "grunt-contrib-pug": "^1.0.0",
-    "jquery": "^3.1.0",
-    "psychic-ui": "^0.4.0",
-    "tap": "^8.0.1",
-    "tape": "^4.6.3"
+    "browserify": "^14.4.0",
+    "chance": "^1.0.9",
+    "eslint": "^3.19.0",
+    "filesize": "^3.5.10",
+    "tap": "^10.3.3",
+    "tape": "^4.6.3",
+    "tryitout": "0.0.3"
   }
 }

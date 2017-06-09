@@ -22,6 +22,18 @@ Turning an array of 1000 complex objects (objects that have nsted objects and ne
 |---|---|
 |315.04 KB|231.06 KB|
 
+## Usage
+
+```
+npm install compress-object
+```
+
+or if you want to use a browserified version use
+
+```javascript
+require('compress-object/dist/compress-object.js');
+```
+
 ## serialize
 
 ```javascript

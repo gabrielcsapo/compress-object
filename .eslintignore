@@ -2,3 +2,4 @@ node_modules
 docs/**
 .nyc_ouput
 coverage
+dist

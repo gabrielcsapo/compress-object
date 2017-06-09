@@ -1,8 +1,8 @@
-var chance = require('chance')();
-var fs = require('fs');
-var filesize = require('filesize');
-var test = require('tape').test;
-var compress = require('../index.js');
+const chance = require('chance')();
+const fs = require('fs');
+const filesize = require('filesize');
+const test = require('tape').test;
+const compress = require('../index.js');
 
 test('compress-object', function(t) {
     t.plan(10);
