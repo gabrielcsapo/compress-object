@@ -1,5 +1,7 @@
 # compress-object
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/gabrielcsapo/compress-object.svg)](https://greenkeeper.io/)
+
 [![Npm Version](https://img.shields.io/npm/v/compress-object.svg)](https://www.npmjs.com/package/compress-object)
 [![Build Status](https://travis-ci.org/gabrielcsapo/compress-object.svg?branch=master)](https://travis-ci.org/gabrielcsapo/compress-object) [![Dependency Status](https://david-dm.org/gabrielcsapo/compress-object.svg)](https://david-dm.org/gabrielcsapo/compress-object)
 [![devDependency Status](https://david-dm.org/gabrielcsapo/compress-object/dev-status.svg)](https://david-dm.org/gabrielcsapo/compress-object#info=devDependencies)
