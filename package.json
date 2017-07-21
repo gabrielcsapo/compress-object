@@ -14,6 +14,9 @@
     "type": "git",
     "url": "git+https://github.com/gabrielcsapo/compress-object.git"
   },
+  "engines": {
+    "node": ">= 0.12"
+  },
   "author": "Gabriel J. Csapo",
   "license": "ISC",
   "bugs": {
