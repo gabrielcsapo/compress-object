@@ -1,15 +1,14 @@
 {
   "name": "compress-object",
   "version": "0.0.2",
-  "description": "Serialize and deserialize objects to a flat array.",
+  "description": "💎 when objects become too large, let's turn them into something smaller",
   "main": "index.js",
-  "scripts": {
-    "build": "browserify -r ./index.js:compress-object > dist/compress-object.js;",
-    "lint": "eslint .;",
-    "test": "tape test;",
-    "coverage": "tap test/*.js --coverage",
-    "generate-docs": "tryitout"
+  "author": "Gabriel J. Csapo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabrielcsapo/compress-object/issues"
   },
+  "homepage": "https://gabrielcsapo.com/compress-object",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gabrielcsapo/compress-object.git"
@@ -17,19 +16,20 @@
   "engines": {
     "node": ">= 0.12"
   },
-  "author": "Gabriel J. Csapo",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/gabrielcsapo/compress-object/issues"
+  "scripts": {
+    "build": "browserify -r ./index.js:compress-object > dist/compress-object.js;",
+    "lint": "eslint .;",
+    "test": "tape test;",
+    "coverage": "tap test/*.js --coverage --coverage-report=lcov",
+    "generate-docs": "tryitout"
   },
-  "homepage": "https://github.com/gabrielcsapo/compress-object#readme",
   "devDependencies": {
-    "browserify": "^14.4.0",
-    "chance": "^1.0.9",
-    "eslint": "^4.2.0",
-    "filesize": "^3.5.10",
-    "tap": "^10.3.3",
-    "tape": "^4.6.3",
-    "tryitout": "0.0.5"
+    "browserify": "^14.5.0",
+    "chance": "^1.0.11",
+    "eslint": "^4.9.0",
+    "filesize": "^3.5.11",
+    "tap": "^10.7.2",
+    "tape": "^4.8.0",
+    "tryitout": "^0.3.5"
   }
 }
