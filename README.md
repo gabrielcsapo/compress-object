@@ -30,87 +30,11 @@ npm install compress-object
 
 ## Usage
 
-```javascript
-var compress = require('compress-object');
-```
-
 > a AMD version of this is available at dist/compress-object.js
 
-## serialize
-
 ```javascript
 var compress = require('compress-object');
-
-var flattened = compress({
-    name: '',
-    age: 0,
-    gender: ''
-}).serialize({
-    name: 'Gabriel J. Csapo',
-    age: 21,
-    gender: 'Male'
-});
-```
-
-> ```javascript
-[ 'Gabriel J. Csapo', 21, 'Male' ]
-```
-
-<br>
-
-> Complex Objects
-
-```javascript
-var flattened = compress({
-    name: '',
-    age: 0,
-    gender: '',
-    friends: [],
-    job: {
-        employer: '',
-        position: ''
-    }
-}).serialize({
-    name: 'Gabriel J. Csapo',
-    age: 21,
-    gender: 'Male',
-    friends: [],
-    job: {
-        employer: 'PayPal',
-        position: 'Software Engineer'
-    }
-});
-```
-
-> ```javascript
-['Gabriel J. Csapo', 21, 'Male', [],['PayPal', 'Software Engineer']]
-```
-
-## deserialize
-
-```javascript
-var flattened = [ 'Gabriel J. Csapo', 21, 'Male' ];
-var object = compress({
-    name: '',
-    age: 0,
-    gender: ''
-}).deserialize(flattened);
-```
-
-> ```javascript
-{
-    name: 'Gabriel J. Csapo',
-    age: 21,
-    gender: 'Male'
-}
-```
-
-<br>
-
-> Complex Objects
-
-```javascript
-var flattened = ['Gabriel J. Csapo', 21, 'Male', [],['PayPal', 'Software Engineer']];
+var flattened = ['Gabriel J. Csapo', 22, 'Male', [], ['PayPal', 'Software Engineer']];
 var object = compress({
     name: '',
     age: 0,
@@ -121,17 +45,4 @@ var object = compress({
         position: ''
     }
 }).deserialize(flattened);
-```
-
-> ```javascript
-{
-    name: 'Gabriel J. Csapo',
-    age: 21,
-    gender: 'Male',
-    friends: [],
-    job: {
-        employer: 'PayPal',
-        position: 'Software Engineer'
-    }
-}
 ```
