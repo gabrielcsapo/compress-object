@@ -1,14 +1,13 @@
+const test = require('tape');
 const chance = require('chance')();
-const fs = require('fs');
-const filesize = require('filesize');
-const test = require('tape').test;
-const compress = require('../index.js');
 
-test('compress-object', function(t) {
-    t.plan(10);
+const Compress = require('../index.js');
 
-    t.test('should serialize the object', function(t) {
-        var flattened = compress({
+test('compress-object', (t) => {
+    t.plan(9);
+
+    t.test('should serialize the object', (t) => {
+        const flattened = new Compress({
             name: '',
             age: 0,
             gender: ''
@@ -21,8 +20,8 @@ test('compress-object', function(t) {
         t.end();
     });
 
-    t.test('should serialize the object with empty attributes', function(t) {
-        var flattened = compress({
+    t.test('should serialize the object with empty attributes', (t) => {
+        const flattened = new Compress({
             name: '',
             age: 0,
             gender: '',
@@ -36,8 +35,8 @@ test('compress-object', function(t) {
         t.end()
     });
 
-    t.test('should serialize complex object', function(t) {
-        var flattened = compress({
+    t.test('should serialize complex object', (t) => {
+        const flattened = new Compress({
             name: '',
             age: 0,
             gender: '',
@@ -60,8 +59,8 @@ test('compress-object', function(t) {
         t.end();
     });
 
-    t.test('should serialize complex object and fill in the missing values', function(t) {
-        var flattened = compress({
+    t.test('should serialize complex object and fill in the missing values', (t) => {
+        const flattened = new Compress({
             name: '',
             age: 0,
             gender: '',
@@ -80,8 +79,8 @@ test('compress-object', function(t) {
         t.end();
     });
 
-    t.test('should serialize an array of objects', function(t) {
-        var flattened = compress({
+    t.test('should serialize an array of objects', (t) => {
+        const flattened = new Compress({
             name: '',
             age: 0,
             gender: ''
@@ -98,9 +97,9 @@ test('compress-object', function(t) {
         t.end();
     });
 
-    t.test('should deserialize the array', function(t) {
-        var flattened = [ 'Gabriel J. Csapo', 21, 'Male' ];
-        var object = compress({
+    t.test('should deserialize the array', (t) => {
+        const flattened = [ 'Gabriel J. Csapo', 21, 'Male' ];
+        const object = new Compress({
             name: '',
             age: 0,
             gender: ''
@@ -113,9 +112,9 @@ test('compress-object', function(t) {
         t.end();
     });
 
-    t.test('should deserialize complex object array', function(t) {
-        var flattened = ['Gabriel J. Csapo', 21, 'Male', [],['PayPal', 'Software Engineer']];
-        var object = compress({
+    t.test('should deserialize complex object array', (t) => {
+        const flattened = ['Gabriel J. Csapo', 21, 'Male', [],['PayPal', 'Software Engineer']];
+        const object = new Compress({
             name: '',
             age: 0,
             gender: '',
@@ -138,9 +137,9 @@ test('compress-object', function(t) {
         t.end();
     });
 
-    t.test('should deserialize complex multi object array', function(t) {
-        var flattened = [ [ 'Gabriel J. Csapo', 21, 'Male' ], [ 'Stephanie Csapo', 20, 'Female' ] ];
-        var object = compress({
+    t.test('should deserialize complex multi object array', (t) => {
+        const flattened = [ [ 'Gabriel J. Csapo', 21, 'Male' ], [ 'Stephanie Csapo', 20, 'Female' ] ];
+        const object = new Compress({
             name: '',
             age: 0,
             gender: ''
@@ -157,7 +156,7 @@ test('compress-object', function(t) {
         t.end();
     });
 
-    t.test('should serialize and deserialize', function(t) {
+    t.test('should serialize and deserialize', (t) => {
         var people = [];
         for(var i = 0; i < 1000; i++) {
             people.push({
@@ -174,8 +173,7 @@ test('compress-object', function(t) {
                 }
             });
         }
-        fs.writeFileSync('./test/uncompressed.json', JSON.stringify(people));
-        var flattened = compress({
+        const compress = new Compress({
             name: '',
             birthday: '',
             suffix: '',
@@ -187,31 +185,13 @@ test('compress-object', function(t) {
                 employer: '',
                 position: ''
             }
-        }).serialize(people);
-        fs.writeFileSync('./test/compressed.json', JSON.stringify(flattened));
-        var object = compress({
-            name: '',
-            birthday: '',
-            suffix: '',
-            age: '',
-            gender: '',
-            bio: '',
-            friends: [],
-            job: {
-                employer: '',
-                position: ''
-            }
-        }).deserialize(flattened);
+        })
+        const flattened = compress.serialize(people);
+        const object = compress.deserialize(flattened);
+        console.log(`original size: ${Buffer.from(JSON.stringify(object), 'utf8').length / 1000}kb`); // eslint-disable-line
+        console.log(`flattened size: ${Buffer.from(JSON.stringify(flattened), 'utf8').length / 1000}kb`); // eslint-disable-line
         t.deepEqual(people, object);
         t.end();
     });
 
-    t.test('should show filesize between the two files', function() {
-        var compressed = fs.statSync('./test/compressed.json')['size'];
-        var uncompressed = fs.statSync('./test/uncompressed.json')['size'];
-        console.log('compressed: ', filesize(compressed)); // eslint-disable-line no-console
-        console.log('uncompressed: ', filesize(uncompressed)) // eslint-disable-line no-console
-    });
-
-    t.end();
 });

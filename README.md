@@ -21,9 +21,9 @@ npm install compress-object --save
 > a AMD version of this is available at dist/compress-object.js
 
 ```javascript
-var compress = require('compress-object');
-var flattened = ['Gabriel J. Csapo', 22, 'Male', [], ['PayPal', 'Software Engineer']];
-var object = compress({
+const Compress = require('compress-object');
+const flattened = ['Gabriel J. Csapo', 22, 'Male', [], ['PayPal', 'Software Engineer']];
+const compressor = new Compress({
     name: '',
     age: 0,
     gender: '',
@@ -32,13 +32,18 @@ var object = compress({
         employer: '',
         position: ''
     }
-}).deserialize(flattened);
+});
+
+const object = compressor.deserialize(flattened);
+const flattenAgain = compressor.serialize(object);
 ```
 
-### Is it worth it?
+## What does it do?
+
+`compress-object` aims to remove the need for keys in JSON, by having a map to and from the flattened structure
 
 Turning an array of 1000 complex objects (objects that have nsted objects and nested arrays) (373ms)
 
-|before|after|
+|size before|size after|
 |---|---|
 |315.04 KB|231.06 KB|

@@ -5,13 +5,17 @@ module.exports = {
       Source: 'https://github.com/gabrielcsapo/compress-object'
     },
     body: [{
+      type: 'text',
+      value: '> `compress-object` aims to remove the need for keys in JSON, by having a map to and from the flattened structure'
+    },
+    {
       type: 'code',
       title: 'Compress Object',
       subtitle: 'This will take an object with a schema and compress it.',
       value: `
-        var compress = require('compress-object');
+        var Compress = require('compress-object');
 
-        var compressed = compress({
+        var compressed = new Compress({
           name: '',
           age: 0,
           gender: ''
@@ -28,10 +32,10 @@ module.exports = {
       title: 'Decompress Object',
       subtitle: 'This will take a decompressed object and inflate it with a schema.',
       value: `
-        var compress = require('compress-object');
+        var Compress = require('compress-object');
         var flattened = ['Gabriel J. Csapo', 21, 'Male'];
 
-        var object = compress({
+        var object = new Compress({
           name: '',
           age: 0,
           gender: ''

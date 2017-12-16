@@ -1,6 +1,6 @@
 {
   "name": "compress-object",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "💎 when objects become too large, let's turn them into something smaller",
   "main": "index.js",
   "author": "Gabriel J. Csapo",
@@ -14,20 +14,25 @@
     "url": "git+https://github.com/gabrielcsapo/compress-object.git"
   },
   "engines": {
-    "node": ">= 0.12"
+    "node": ">= 4"
   },
   "scripts": {
     "lint": "eslint .;",
     "test": "tape test;",
     "coverage": "tap test/*.js --coverage --coverage-report=lcov",
-    "build": "browserify -r ./index.js:compress-object > dist/compress-object.js;",
+    "build": "browserify -r ./index.js:compress-object -t [ brfs ] -t [ babelify --presets [ env ]]  > dist/compress-object.js && minify dist/compress-object.js --out-file dist/compress-object.min.js",
     "generate-docs": "tryitout"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-minify": "^0.2.0",
+    "babel-preset-env": "^1.6.1",
+    "babelify": "^8.0.0",
+    "brfs": "^1.4.3",
     "browserify": "^14.5.0",
     "chance": "^1.0.12",
     "eslint": "^4.13.1",
-    "filesize": "^3.5.11",
     "tap": "^11.0.0",
     "tape": "^4.8.0",
     "tryitout": "^1.2.1"
