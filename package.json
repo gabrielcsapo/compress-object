@@ -17,19 +17,19 @@
     "node": ">= 0.12"
   },
   "scripts": {
-    "build": "browserify -r ./index.js:compress-object > dist/compress-object.js;",
     "lint": "eslint .;",
     "test": "tape test;",
     "coverage": "tap test/*.js --coverage --coverage-report=lcov",
+    "build": "browserify -r ./index.js:compress-object > dist/compress-object.js;",
     "generate-docs": "tryitout"
   },
   "devDependencies": {
     "browserify": "^14.5.0",
-    "chance": "^1.0.11",
-    "eslint": "^4.9.0",
+    "chance": "^1.0.12",
+    "eslint": "^4.13.1",
     "filesize": "^3.5.11",
-    "tap": "^10.7.2",
+    "tap": "^11.0.0",
     "tape": "^4.8.0",
-    "tryitout": "^0.3.5"
+    "tryitout": "^1.2.1"
   }
 }

@@ -10,22 +10,10 @@
 [![npm](https://img.shields.io/npm/dt/compress-object.svg?maxAge=2592000)]()
 [![npm](https://img.shields.io/npm/dm/compress-object.svg?maxAge=2592000)]()
 
-## TLDR;
-
-This is a simple library to turn javascript objects into flat representations
-
-### Is it worth it?
-
-Turning an array of 1000 complex objects (objects that have nsted objects and nested arrays) (373ms)
-
-|before|after|
-|---|---|
-|315.04 KB|231.06 KB|
-
 ## Installation
 
 ```
-npm install compress-object
+npm install compress-object --save
 ```
 
 ## Usage
@@ -46,3 +34,11 @@ var object = compress({
     }
 }).deserialize(flattened);
 ```
+
+### Is it worth it?
+
+Turning an array of 1000 complex objects (objects that have nsted objects and nested arrays) (373ms)
+
+|before|after|
+|---|---|
+|315.04 KB|231.06 KB|

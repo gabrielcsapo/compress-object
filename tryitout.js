@@ -1,13 +1,13 @@
 module.exports = {
-    title: "compress-object",
-    description: "💎 when objects become too large, let's turn them into something smaller",
+    title: 'compress-object',
+    description: '💎 when objects become too large, let\'s turn them into something smaller',
     nav: {
-      Source: "https://github.com/gabrielcsapo/compress-object"
+      Source: 'https://github.com/gabrielcsapo/compress-object'
     },
     body: [{
-      type: "code",
-      title: "Compress Object",
-      subtitle: "This will take an object with a schema and compress it.",
+      type: 'code',
+      title: 'Compress Object',
+      subtitle: 'This will take an object with a schema and compress it.',
       value: `
         var compress = require('compress-object');
 
@@ -24,9 +24,9 @@ module.exports = {
         console.log(JSON.stringify(compressed));
       `
     }, {
-      type: "code",
-      title: "Decompress Object",
-      subtitle: "This will take a decompressed object and inflate it with a schema.",
+      type: 'code',
+      title: 'Decompress Object',
+      subtitle: 'This will take a decompressed object and inflate it with a schema.',
       value: `
         var compress = require('compress-object');
         var flattened = ['Gabriel J. Csapo', 21, 'Male'];
@@ -40,8 +40,9 @@ module.exports = {
         console.log(JSON.stringify(object, null, 4));
       `
     }],
-    output: "./docs",
+    template: 'code',
+    output: './docs',
     externals: [
-      "./dist/compress-object.js"
+      './dist/compress-object.js'
     ]
 };
